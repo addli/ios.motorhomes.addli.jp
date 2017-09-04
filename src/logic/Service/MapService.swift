@@ -14,7 +14,7 @@ struct MapService{
     
     let placeRepo:PlaceRepository = PlaceImplRepository()
     
-    func loadPlace(handler:([Place],Error?) -> Void){
+    func loadPlace(handler:@escaping ([Place]?,Error?) -> Void){
         placeRepo.loadPlace(handler:handler)
     }
 }

@@ -8,12 +8,25 @@
 
 import Foundation
 
+import WebStruct
+
 protocol PlaceRepository{
-    func loadPlace(handler:([Place],Error?) -> Void)
+    func loadPlace(handler:@escaping ([Place]?,Error?) -> Void)
 }
 
 struct PlaceImplRepository : PlaceRepository {
-    func loadPlace(handler:([Place],Error?) -> Void){
-        handler([Place(title : "大分", type : "", postalCode : "", address : "大分県別府市", tel : "", url : "", location : Location(latitude:33.246942,longitude:131.653304))],nil)
+
+    func loadPlace(handler:@escaping ([Place]?,Error?) -> Void){
+
+        DispatchQueue.global().async {
+            let file:PlacesFile
+            do {
+                file = try PlacesFile("http://motorhomes.addli.jp/assets/json/places.json")
+            }catch{
+                handler( nil, error as? Error )
+                return
+            }
+            handler( file.places, nil )
+        }
     }
 }

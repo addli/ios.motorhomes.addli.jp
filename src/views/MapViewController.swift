@@ -25,14 +25,23 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        service.loadPlace( handler:{ (places,error) in
+        service.loadPlace( handler:{ places,error in
             
-            places.forEach({ (place) in
+            guard let places_ = places else{
+                guard error != nil else{
+                    // Result and error are empty
+                    return
+                }
+                
+                // show error
+                return
+            }
+            places_.forEach({ place in
                 let annotation = PlaceAnnotation(place: place)
                 annotation.coordinate = CLLocationCoordinate2DMake(place.location.latitude, place.location.longitude)
                 annotation.title = place.title
                 annotation.subtitle = "\(place.location)"
-                mapView.addAnnotation(annotation)
+                self.mapView.addAnnotation(annotation)
             })
         })
     }
@@ -61,7 +70,7 @@ extension MapViewController : MKMapViewDelegate{
             
             let callOutView = self.callOutView
             if case let anno as PlaceAnnotation = annotation{
-                callOutView.addressLabel.text = anno.place.address
+                callOutView.set(place:anno.place)
             }
             view.detailCalloutAccessoryView = callOutView
             pin = view

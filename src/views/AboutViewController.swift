@@ -18,4 +18,3 @@ class AboutViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 }
-

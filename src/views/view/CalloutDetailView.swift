@@ -11,14 +11,20 @@ import UIKit
 class CalloutDetailView : UIView{
     
     @IBOutlet var addressLabel:UILabel!
+    @IBOutlet var urlLabel:UILabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        let widthConstraint = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
+        let widthConstraint = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 261)
         self.addConstraint(widthConstraint)
         
-        let heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60)
+        let heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 42)
         self.addConstraint(heightConstraint)
+    }
+    
+    func set(place:Place) {
+        self.addressLabel.text = place.address
+        self.urlLabel.text = place.url
     }
 }

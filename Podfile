@@ -13,7 +13,7 @@ pod 'Crashlytics', '~> 3.8.4'
 pod 'PKHUD', '~> 4.2.2'
 
 # Web Client
-pod 'WebStruct',        :git => 'https://github.com/iq3addLi/WebStruct.git', :tag => '0.5.0'
+pod 'WebStruct',        :git => 'https://github.com/iq3addLi/WebStruct.git', :tag => '0.6.0'
 
 # Markdown Renderer
 pod 'MarkdownView', '~> 1.0.3'
