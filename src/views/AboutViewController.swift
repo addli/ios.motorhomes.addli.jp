@@ -10,11 +10,21 @@ import UIKit
 
 class AboutViewController: UITableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard case let nextVC as MarkedViewController = segue.destination
+            else{ fatalError("Next scene is not MarkedViewController.") }
+        
+        guard let identifier = segue.identifier
+            else{ fatalError("Segue identifier is empty.") }
+        
+        switch identifier {
+        case "toAboutThisApp":
+            nextVC.file = "about-this-app.md"
+        case "toOpenSourceLicenses":
+            nextVC.file = "licenses.md"
+        default:
+            fatalError("\(identifier) is not expected indentifier.")
+        }
     }
 }

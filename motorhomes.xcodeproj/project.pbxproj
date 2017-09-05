@@ -25,6 +25,7 @@
 		3C7F51561F5A87000080EB5C /* CalloutDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7F51551F5A87000080EB5C /* CalloutDetailView.xib */; };
 		3C7F51581F5A87130080EB5C /* CalloutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F51571F5A87130080EB5C /* CalloutDetailView.swift */; };
 		3C7F515A1F5A91020080EB5C /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F51591F5A91020080EB5C /* PlaceAnnotation.swift */; };
+		3CA7F85E1F5E482E00CA4E7B /* MarkedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA7F85D1F5E482E00CA4E7B /* MarkedViewController.swift */; };
 		3CB4CF3B1F5D6C2D00A32F67 /* Entity+WebStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4CF3A1F5D6C2D00A32F67 /* Entity+WebStruct.swift */; };
 		9E16B02F63F004CCA8C50187 /* Pods_motorhomes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147EE58169666FD30E4BD597 /* Pods_motorhomes.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,9 @@
 		3C7F51551F5A87000080EB5C /* CalloutDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalloutDetailView.xib; sourceTree = "<group>"; };
 		3C7F51571F5A87130080EB5C /* CalloutDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDetailView.swift; sourceTree = "<group>"; };
 		3C7F51591F5A91020080EB5C /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		3CA7F85D1F5E482E00CA4E7B /* MarkedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkedViewController.swift; sourceTree = "<group>"; };
+		3CA7F8621F5E527B00CA4E7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		3CA7F8641F5E722400CA4E7B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		3CB4CF3A1F5D6C2D00A32F67 /* Entity+WebStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entity+WebStruct.swift"; sourceTree = "<group>"; };
 		3CD7B4C51F50069D00515710 /* motorhomes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = motorhomes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD7B4D91F50069D00515710 /* motorhomesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = motorhomesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +153,7 @@
 				3C70B4551F517BDD0056FA59 /* view */,
 				3C70B4561F517BDD0056FA59 /* MapViewController.swift */,
 				3C7F51421F5A50150080EB5C /* AboutViewController.swift */,
+				3CA7F85C1F5E482E00CA4E7B /* about */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -204,6 +209,14 @@
 				3C7F514D1F5A5C0A0080EB5C /* PlaceRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		3CA7F85C1F5E482E00CA4E7B /* about */ = {
+			isa = PBXGroup;
+			children = (
+				3CA7F85D1F5E482E00CA4E7B /* MarkedViewController.swift */,
+			);
+			path = about;
 			sourceTree = "<group>";
 		};
 		3CD7B4BC1F50069D00515710 = {
@@ -372,6 +385,7 @@
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 				"${BUILT_PRODUCTS_DIR}/WebStruct/WebStruct.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -379,6 +393,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebStruct.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +459,7 @@
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 				"${BUILT_PRODUCTS_DIR}/WebStruct/WebStruct.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -451,6 +467,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebStruct.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +484,7 @@
 			files = (
 				3C7F51431F5A50150080EB5C /* AboutViewController.swift in Sources */,
 				3C70B45C1F517BDD0056FA59 /* MapViewController.swift in Sources */,
+				3CA7F85E1F5E482E00CA4E7B /* MarkedViewController.swift in Sources */,
 				3C7F515A1F5A91020080EB5C /* PlaceAnnotation.swift in Sources */,
 				3C7F51541F5A775B0080EB5C /* Location.swift in Sources */,
 				3C7F514A1F5A5A6C0080EB5C /* MapService.swift in Sources */,
@@ -510,6 +528,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				3C70B4541F517BDD0056FA59 /* Base */,
+				3CA7F8621F5E527B00CA4E7B /* en */,
+				3CA7F8641F5E722400CA4E7B /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -521,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -571,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

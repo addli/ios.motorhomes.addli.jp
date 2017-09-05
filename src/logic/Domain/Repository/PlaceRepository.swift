@@ -19,11 +19,15 @@ struct PlaceImplRepository : PlaceRepository {
     func loadPlace(handler:@escaping ([Place]?,Error?) -> Void){
 
         DispatchQueue.global().async {
-            let file:PlacesFile
+            let file:PlacesWrapper
             do {
-                file = try PlacesFile("http://motorhomes.addli.jp/assets/json/places.json")
+                file = try PlacesWrapper("http://motorhomes.addli.jp/assets/json/places.json")
             }catch{
-                handler( nil, error as? Error )
+                if case let error as WebStruct.Error = error{
+                    handler( nil, Error(reason:"\(error)") )
+                }else{
+                    handler( nil, Error(reason:"Unknown error.") )
+                }
                 return
             }
             handler( file.places, nil )

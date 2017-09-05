@@ -54,19 +54,19 @@ extension ApplicationError : WebSerializable{
 
 
 
-public struct PlacesFile{
+public struct PlacesWrapper{
     let places:[Place]
 }
 
-extension PlacesFile : WebInitializable{
+extension PlacesWrapper : WebInitializable{
     
-    typealias inputType = RequestStruct
-    typealias errorType = ApplicationError
+    public typealias inputType = RequestStruct
+    public typealias errorType = ApplicationError
     
-    init (fromObject object:Any) throws{
+    public init (fromObject object:Any) throws{
         
         guard case let array as [[String:Any]] = object
-            else { throw ParseError(code: -1, reason: "Return body is not array.") }
+            else { throw ParseError(code: -1, reason: "Returned body is not array.") }
         
         self.places = try array.map({ place in
             
@@ -92,5 +92,32 @@ extension PlacesFile : WebInitializable{
             
             return Place( title: title, type: type, postalCode: postalCode, address: address, tel: tel, url: url, location: Location( latitude: lat, longitude: lon ) )
         })
+    }
+}
+
+public struct MarkdownWrapper{
+    let text:String
+}
+
+extension MarkdownWrapper : WebInitializable{
+    
+    public typealias inputType = RequestStruct
+    public typealias errorType = ApplicationError
+
+    public init (fromObject object:Any) throws{
+        guard case let text as String = object
+             else { throw ParseError(code: -1, reason: "Returned body is not text.") }
+        self.text = text
+    }
+    
+    public static var request:URLRequest {
+        guard let url = URL(string: "http://" ) else{ fatalError() }
+        var request = URLRequest(url:url, cachePolicy:.reloadIgnoringLocalCacheData, timeoutInterval:3.0 )
+        request.addValue("text/plain", forHTTPHeaderField: "Content-Type" )
+        return request
+    }
+    
+    public static func serialize(data:Data) throws -> Any {
+        return String(data: data, encoding: .utf8 ) ?? data
     }
 }

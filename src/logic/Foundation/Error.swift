@@ -9,5 +9,5 @@
 import Foundation
 
 struct Error : Swift.Error{
-    
+    let reason:String
 }

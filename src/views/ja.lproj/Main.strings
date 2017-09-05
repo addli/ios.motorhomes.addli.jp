@@ -1,0 +1,24 @@
+
+/* Class = "UITableViewController"; title = "About"; ObjectID = "20x-ql-IOc"; */
+"20x-ql-IOc.title" = "About";
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "9a0-pE-2oi"; */
+"9a0-pE-2oi.title" = "Item 1";
+
+/* Class = "UITabBarItem"; title = "About"; ObjectID = "ALO-SX-Nt1"; */
+"ALO-SX-Nt1.title" = "その他情報";
+
+/* Class = "UIViewController"; title = "Map"; ObjectID = "AlI-sg-1Jo"; */
+"AlI-sg-1Jo.title" = "Map";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "O8e-Jd-UXr"; */
+"O8e-Jd-UXr.title" = "マップ";
+
+/* Class = "UILabel"; text = "このアプリについて"; ObjectID = "XpF-KV-lc8"; */
+"XpF-KV-lc8.text" = "このアプリについて";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "aEY-Zb-5jg"; */
+"aEY-Zb-5jg.title" = "Item";
+
+/* Class = "UILabel"; text = "オープンソースのライセンス"; ObjectID = "kQg-pQ-1Sk"; */
+"kQg-pQ-1Sk.text" = "オープンソースのライセンス";

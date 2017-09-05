@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 
+import Toaster
+
 class MapViewController: UIViewController {
 
     let service = MapService()
@@ -28,14 +30,10 @@ class MapViewController: UIViewController {
         service.loadPlace( handler:{ places,error in
             
             guard let places_ = places else{
-                guard error != nil else{
-                    // Result and error are empty
-                    return
-                }
-                
-                // show error
+                Toast(text: error != nil ? "\(error!.reason)" : "Exception. But, error is empty." ).show()
                 return
             }
+            
             places_.forEach({ place in
                 let annotation = PlaceAnnotation(place: place)
                 annotation.coordinate = CLLocationCoordinate2DMake(place.location.latitude, place.location.longitude)
@@ -43,6 +41,10 @@ class MapViewController: UIViewController {
                 annotation.subtitle = "\(place.location)"
                 self.mapView.addAnnotation(annotation)
             })
+            
+            DispatchQueue.main.async {
+                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+            }
         })
     }
 
